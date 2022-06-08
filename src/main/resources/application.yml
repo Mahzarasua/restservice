@@ -5,3 +5,38 @@ springdoc:
     path: /openapi
   swagger-ui:
     path: /swagger-ui-openapi.html
+management:
+  health:
+    probes:
+      enabled: true
+    db:
+      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: /admin
+  endpoint:
+    health:
+      show-details: always
+  info:
+    env:
+      enabled: true
+info:
+  app:
+    version: 0.0.1-SNAPSHOT
+    name: restservice
+    description: Demo project for Spring Boot
+    license:
+      name: "MIT License"
+      url: "https://opensource.org/licenses/MIT"
+    contact:
+      name: "Miguel Hernandez"
+      url: "https://github.com/mahzarasua"
+      email: "mahzarasua@hotmail.com"
+spring:
+  output:
+    ansi:
+      enabled: ALWAYS
+  application:
+    name: restservice

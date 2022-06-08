@@ -17,11 +17,13 @@ import java.time.LocalDateTime;
 @RequestMapping(value = "/api/v1/service", produces = MediaType.APPLICATION_JSON_VALUE)
 public class Restcontroller {
 
+    public static final String WELCOME_MSG = "Welcome to this beautiful service";
+
     @GetMapping(value = {""})
     @ResponseStatus(HttpStatus.OK)
     public String getHello(){
         log.info("getHello method started: " + LocalDateTime.now());
-        return "Welcome to this beautiful service";
+        return WELCOME_MSG;
     }
 
     @GetMapping(value = "/{name}")
@@ -29,7 +31,7 @@ public class Restcontroller {
     public String getHelloPath(@PathVariable String name){
         log.info("getHelloPath method started: " + LocalDateTime.now());
         if(name == null) throw new RuntimeException("Name must be provided");
-        return "Hi " + name + " Welcome to this beautiful service";
+        return "Hi " + name + " " + WELCOME_MSG;
     }
 
     @GetMapping(value = "/")
@@ -37,7 +39,7 @@ public class Restcontroller {
     public String getHelloQuery(@RequestParam(required = false) String name){
         log.info("getHelloQuery method started: " + LocalDateTime.now());
         if(name == null) return getHello();
-        return "Hi " + name + " Welcome to this beautiful service";
+        return "Hi " + name + " " + WELCOME_MSG;
     }
 
 }
